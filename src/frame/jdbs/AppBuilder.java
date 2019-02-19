@@ -21,7 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
-import main.CustomizedDaoPattern;
 import main.DaoPattern;
 import main.Functions;
 
@@ -232,7 +231,7 @@ public AppBuilder(AppInfo thisAppInfo,AppInfo newAppInfo,Table1[] unselectedTabl
          
         if (database.getTables() != null) {
 
-            CustomizedDaoPattern.createDaoPattern(thisAppInfo, newAppInfo, database);
+            DaoPattern.createDaoPattern(thisAppInfo, newAppInfo, database);
             AddFunctions.addFunction(newAppInfo, database);
            newProjPath=newAppInfo.getPath();
            thisProjPath=thisAppInfo.getPath();
