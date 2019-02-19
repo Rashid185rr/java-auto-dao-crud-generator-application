@@ -193,7 +193,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tableTab2 = new javax.swing.JPanel();
-        tableNameLBL2 = new javax.swing.JLabel();
         allBtnRD = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         insertChk1 = new javax.swing.JCheckBox();
@@ -212,12 +211,13 @@ public class TableFrame1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Table");
         setAlwaysOnTop(true);
-        setMinimumSize(new java.awt.Dimension(1573, 1024));
+        setMaximumSize(new java.awt.Dimension(1920, 1200));
+        setMinimumSize(new java.awt.Dimension(1024, 1024));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(53, 59, 72));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1700, 800));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1200));
         jPanel1.setLayout(null);
 
@@ -226,7 +226,7 @@ public class TableFrame1 extends javax.swing.JFrame {
         tableNameLBL.setForeground(new java.awt.Color(255, 255, 255));
         tableNameLBL.setText("Table Name");
         jPanel1.add(tableNameLBL);
-        tableNameLBL.setBounds(479, 131, 472, 80);
+        tableNameLBL.setBounds(300, 70, 240, 80);
 
         tabPane.setBackground(new java.awt.Color(53, 59, 72));
         tabPane.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -255,7 +255,7 @@ public class TableFrame1 extends javax.swing.JFrame {
         selectedScroll.setViewportView(selectedList);
 
         tableTab1.add(selectedScroll);
-        selectedScroll.setBounds(810, 80, 320, 690);
+        selectedScroll.setBounds(790, 60, 320, 490);
 
         allColumnRd1.setBackground(new java.awt.Color(53, 59, 72));
         allColumnRd1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
@@ -283,7 +283,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab1.add(nextTable);
-        nextTable.setBounds(1160, 360, 220, 30);
+        nextTable.setBounds(1120, 360, 220, 30);
 
         prevTable.setBackground(new java.awt.Color(87, 101, 116));
         prevTable.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -301,7 +301,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab1.add(prevTable);
-        prevTable.setBounds(30, 370, 230, 30);
+        prevTable.setBounds(10, 370, 230, 30);
 
         unselectedScroll.setBackground(new java.awt.Color(53, 59, 72));
 
@@ -316,7 +316,7 @@ public class TableFrame1 extends javax.swing.JFrame {
         unselectedScroll.setViewportView(unselectedList);
 
         tableTab1.add(unselectedScroll);
-        unselectedScroll.setBounds(280, 80, 320, 690);
+        unselectedScroll.setBounds(250, 60, 320, 490);
 
         removeBtn.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         removeBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -328,7 +328,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab1.add(removeBtn);
-        removeBtn.setBounds(610, 320, 200, 60);
+        removeBtn.setBounds(590, 310, 200, 60);
         tableTab1.add(columnSelectedLBL4);
         columnSelectedLBL4.setBounds(1180, 130, 110, 30);
 
@@ -342,7 +342,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab1.add(addBtn);
-        addBtn.setBounds(620, 250, 120, 60);
+        addBtn.setBounds(590, 250, 120, 60);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -363,12 +363,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         tableTab2.setPreferredSize(new java.awt.Dimension(1458, 673));
         tableTab2.setLayout(null);
 
-        tableNameLBL2.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        tableNameLBL2.setForeground(new java.awt.Color(255, 255, 255));
-        tableNameLBL2.setText("Table Name");
-        tableTab2.add(tableNameLBL2);
-        tableNameLBL2.setBounds(290, 6, 452, 111);
-
         allBtnRD.setBackground(new java.awt.Color(53, 59, 72));
         allBtnRD.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         allBtnRD.setForeground(new java.awt.Color(255, 255, 255));
@@ -384,13 +378,13 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(allBtnRD);
-        allBtnRD.setBounds(30, 220, 220, 50);
+        allBtnRD.setBounds(30, 160, 220, 50);
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Buttons");
         tableTab2.add(jLabel2);
-        jLabel2.setBounds(20, 130, 364, 73);
+        jLabel2.setBounds(20, 60, 364, 73);
 
         insertChk1.setBackground(new java.awt.Color(53, 59, 72));
         insertChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -402,7 +396,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(insertChk1);
-        insertChk1.setBounds(60, 280, 158, 42);
+        insertChk1.setBounds(70, 210, 158, 42);
 
         deleteChk1.setBackground(new java.awt.Color(53, 59, 72));
         deleteChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -414,7 +408,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(deleteChk1);
-        deleteChk1.setBounds(60, 320, 158, 42);
+        deleteChk1.setBounds(70, 250, 158, 42);
 
         updateChk1.setBackground(new java.awt.Color(53, 59, 72));
         updateChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -426,7 +420,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(updateChk1);
-        updateChk1.setBounds(60, 360, 158, 42);
+        updateChk1.setBounds(70, 290, 158, 42);
 
         viewChk1.setBackground(new java.awt.Color(53, 59, 72));
         viewChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -438,7 +432,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(viewChk1);
-        viewChk1.setBounds(60, 400, 158, 42);
+        viewChk1.setBounds(70, 330, 158, 42);
 
         cancelChk1.setBackground(new java.awt.Color(53, 59, 72));
         cancelChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -450,7 +444,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(cancelChk1);
-        cancelChk1.setBounds(60, 440, 158, 42);
+        cancelChk1.setBounds(70, 370, 158, 42);
 
         nextChk1.setBackground(new java.awt.Color(53, 59, 72));
         nextChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -462,7 +456,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(nextChk1);
-        nextChk1.setBounds(60, 520, 158, 42);
+        nextChk1.setBounds(70, 450, 158, 42);
 
         backChk1.setBackground(new java.awt.Color(53, 59, 72));
         backChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -474,7 +468,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(backChk1);
-        backChk1.setBounds(60, 480, 158, 42);
+        backChk1.setBounds(70, 410, 158, 42);
 
         searchChk1.setBackground(new java.awt.Color(53, 59, 72));
         searchChk1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -486,23 +480,23 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         tableTab2.add(searchChk1);
-        searchChk1.setBounds(60, 560, 158, 42);
+        searchChk1.setBounds(70, 490, 158, 42);
 
         tabPane.addTab("Buttons", tableTab2);
 
         jPanel1.add(tabPane);
-        tabPane.setBounds(85, 223, 1417, 850);
+        tabPane.setBounds(40, 140, 1370, 640);
 
         appLBL.setBackground(new java.awt.Color(53, 59, 72));
         appLBL.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         appLBL.setForeground(new java.awt.Color(255, 255, 255));
         appLBL.setText("Application Name");
         jPanel1.add(appLBL);
-        appLBL.setBounds(55, 62, 316, 63);
+        appLBL.setBounds(720, 70, 316, 63);
 
         appNameTxt.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jPanel1.add(appNameTxt);
-        appNameTxt.setBounds(377, 65, 298, 60);
+        appNameTxt.setBounds(1040, 70, 298, 60);
 
         backBtn.setBackground(new java.awt.Color(87, 101, 116));
         backBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -518,7 +512,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn);
-        backBtn.setBounds(1585, 911, 140, 44);
+        backBtn.setBounds(810, 780, 140, 44);
 
         appBuilderBtn.setBackground(new java.awt.Color(87, 101, 116));
         appBuilderBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -534,7 +528,7 @@ public class TableFrame1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(appBuilderBtn);
-        appBuilderBtn.setBounds(1747, 911, 140, 44);
+        appBuilderBtn.setBounds(990, 780, 140, 44);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1200);
@@ -1262,7 +1256,6 @@ public class TableFrame1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane selectedScroll;
     private javax.swing.JTabbedPane tabPane;
     private javax.swing.JLabel tableNameLBL;
-    private javax.swing.JLabel tableNameLBL2;
     private javax.swing.JPanel tableTab1;
     private javax.swing.JPanel tableTab2;
     private javax.swing.JList<String> unselectedList;

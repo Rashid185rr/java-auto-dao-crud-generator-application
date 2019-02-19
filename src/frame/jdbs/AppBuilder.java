@@ -94,59 +94,29 @@ public AppBuilder(AppInfo thisAppInfo,AppInfo newAppInfo,Table1[] unselectedTabl
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        projectNameLBL = new javax.swing.JLabel();
-        backBtn1 = new javax.swing.JButton();
-        projectPathLBL = new javax.swing.JLabel();
-        tableScroll = new javax.swing.JScrollPane();
-        tableTxt = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        projectPathLBL = new javax.swing.JLabel();
+        backBtn1 = new javax.swing.JButton();
+        projectNameLBL = new javax.swing.JLabel();
+        tableScroll = new javax.swing.JScrollPane();
+        tableTxt = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1920, 1200));
-        setSize(new java.awt.Dimension(1917, 1200));
+        setMaximumSize(new java.awt.Dimension(1500, 1024));
+        setMinimumSize(new java.awt.Dimension(900, 700));
+        setPreferredSize(new java.awt.Dimension(1500, 1024));
+        setSize(new java.awt.Dimension(1500, 1024));
         getContentPane().setLayout(null);
 
-        projectNameLBL.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        projectNameLBL.setForeground(new java.awt.Color(255, 255, 255));
-        projectNameLBL.setText("Project Name");
-        getContentPane().add(projectNameLBL);
-        projectNameLBL.setBounds(410, 200, 642, 75);
-
-        backBtn1.setBackground(new java.awt.Color(87, 101, 116));
-        backBtn1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        backBtn1.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/file/file.png"))); // NOI18N
-        backBtn1.setText("CHANGE");
-        backBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtn1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backBtn1);
-        backBtn1.setBounds(610, 950, 150, 50);
-
-        projectPathLBL.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(projectPathLBL);
-        projectPathLBL.setBounds(160, 950, 410, 50);
-
-        tableScroll.setOpaque(true);
-
-        tableTxt.setBackground(new java.awt.Color(53, 59, 72));
-        tableTxt.setColumns(20);
-        tableTxt.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        tableTxt.setForeground(new java.awt.Color(189, 195, 199));
-        tableTxt.setRows(5);
-        tableScroll.setViewportView(tableTxt);
-
-        getContentPane().add(tableScroll);
-        tableScroll.setBounds(20, 390, 790, 430);
-
         jPanel1.setBackground(new java.awt.Color(53, 59, 72));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1500, 1200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(900, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1500, 1024));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backBtn.setBackground(new java.awt.Color(87, 101, 116));
@@ -160,7 +130,7 @@ public AppBuilder(AppInfo thisAppInfo,AppInfo newAppInfo,Table1[] unselectedTabl
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1331, 950, 180, 50));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 590, 180, 50));
 
         cancelBtn.setBackground(new java.awt.Color(87, 101, 116));
         cancelBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -172,7 +142,7 @@ public AppBuilder(AppInfo thisAppInfo,AppInfo newAppInfo,Table1[] unselectedTabl
                 cancelBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 950, 180, 48));
+        jPanel1.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 590, 180, 48));
 
         createBtn.setBackground(new java.awt.Color(87, 101, 116));
         createBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -184,20 +154,51 @@ public AppBuilder(AppInfo thisAppInfo,AppInfo newAppInfo,Table1[] unselectedTabl
                 createBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1710, 950, 180, 50));
+        jPanel1.add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 590, 180, 50));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("COLUMNS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("TABLES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 30));
+
+        projectPathLBL.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(projectPathLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 700, 410, 50));
+
+        backBtn1.setBackground(new java.awt.Color(87, 101, 116));
+        backBtn1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        backBtn1.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/file/file.png"))); // NOI18N
+        backBtn1.setText("CHANGE");
+        backBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 150, 50));
+
+        projectNameLBL.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        projectNameLBL.setForeground(new java.awt.Color(255, 255, 255));
+        projectNameLBL.setText("Project Name");
+        jPanel1.add(projectNameLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 642, 75));
+
+        tableScroll.setOpaque(true);
+
+        tableTxt.setBackground(new java.awt.Color(53, 59, 72));
+        tableTxt.setColumns(20);
+        tableTxt.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        tableTxt.setForeground(new java.awt.Color(189, 195, 199));
+        tableTxt.setRows(5);
+        tableScroll.setViewportView(tableTxt);
+
+        jPanel1.add(tableScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 790, 430));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1920, 1150);
+        jPanel1.setBounds(0, 0, 1500, 1024);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

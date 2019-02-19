@@ -124,18 +124,6 @@ public class MySQLFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sqlLBL = new javax.swing.JLabel();
-        executeBtn = new javax.swing.JButton();
-        userNameTxt = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        sqlPathLBL1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        softwareName = new javax.swing.JTextField();
-        newProjPathLBL = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        databaseList = new javax.swing.JList<>();
-        selectAllRd = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         pwdTxt = new javax.swing.JPasswordField();
         savePathBtn = new javax.swing.JButton();
@@ -143,12 +131,112 @@ public class MySQLFrame extends javax.swing.JFrame {
         createBtn = new javax.swing.JButton();
         customizeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        newProjPathLBL = new javax.swing.JLabel();
+        executeBtn = new javax.swing.JButton();
+        sqlLBL = new javax.swing.JLabel();
+        sqlPathLBL1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        databaseList = new javax.swing.JList<>();
+        selectAllRd = new javax.swing.JRadioButton();
+        softwareName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        userNameTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(700, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1500, 1024));
         setSize(new java.awt.Dimension(3200, 1600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(53, 59, 72));
+        jPanel1.setForeground(new java.awt.Color(127, 140, 141));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1200));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pwdTxt.setBackground(new java.awt.Color(53, 59, 72));
+        pwdTxt.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        pwdTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwdTxtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pwdTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 260, 50));
+
+        savePathBtn.setBackground(new java.awt.Color(87, 101, 116));
+        savePathBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        savePathBtn.setForeground(new java.awt.Color(255, 255, 255));
+        savePathBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/file/folder.png"))); // NOI18N
+        savePathBtn.setText("CHANGE PATH");
+        savePathBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePathBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(savePathBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 760, 280, 50));
+
+        executeBar.setBackground(new java.awt.Color(53, 59, 72));
+        executeBar.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel1.add(executeBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 840, 380, 60));
+
+        createBtn.setBackground(new java.awt.Color(87, 101, 116));
+        createBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        createBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/add/java (1).png"))); // NOI18N
+        createBtn.setText("CREATE");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 680, 170, 40));
+
+        customizeBtn.setBackground(new java.awt.Color(87, 101, 116));
+        customizeBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        customizeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        customizeBtn.setText("CUTOMIZE");
+        customizeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customizeBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(customizeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 680, 170, 40));
+
+        backBtn.setBackground(new java.awt.Color(87, 101, 116));
+        backBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/back/back (6).png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 680, 170, 40));
+
+        newProjPathLBL.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        newProjPathLBL.setForeground(new java.awt.Color(255, 255, 255));
+        newProjPathLBL.setText("save your file...");
+        newProjPathLBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newProjPathLBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(newProjPathLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 760, 450, 50));
+
+        executeBtn.setBackground(new java.awt.Color(87, 101, 116));
+        executeBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        executeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        executeBtn.setText("Execute");
+        executeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                executeBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(executeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 260, 140, 40));
 
         sqlLBL.setBackground(new java.awt.Color(53, 59, 72));
         sqlLBL.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -163,62 +251,12 @@ public class MySQLFrame extends javax.swing.JFrame {
                 sqlLBLMouseEntered(evt);
             }
         });
-        getContentPane().add(sqlLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 400, -1, 60));
-
-        executeBtn.setBackground(new java.awt.Color(87, 101, 116));
-        executeBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        executeBtn.setForeground(new java.awt.Color(255, 255, 255));
-        executeBtn.setText("Execute");
-        executeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                executeBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(executeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 460, 140, 40));
-
-        userNameTxt.setBackground(new java.awt.Color(53, 59, 72));
-        userNameTxt.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        userNameTxt.setForeground(new java.awt.Color(189, 195, 199));
-        userNameTxt.setText("root");
-        userNameTxt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102))));
-        getContentPane().add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 260, 50));
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("User Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 180, 50));
+        jPanel1.add(sqlLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 180, -1, 60));
 
         sqlPathLBL1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         sqlPathLBL1.setForeground(new java.awt.Color(255, 255, 255));
         sqlPathLBL1.setText("sql file path...");
-        getContentPane().add(sqlPathLBL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1550, 320, 330, 50));
-
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 180, 50));
-
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Software Name");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 180, 50));
-
-        softwareName.setEditable(false);
-        softwareName.setBackground(new java.awt.Color(53, 59, 72));
-        softwareName.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        softwareName.setForeground(new java.awt.Color(189, 195, 199));
-        softwareName.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102))));
-        getContentPane().add(softwareName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 260, 50));
-
-        newProjPathLBL.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        newProjPathLBL.setForeground(new java.awt.Color(255, 255, 255));
-        newProjPathLBL.setText("save your file...");
-        newProjPathLBL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newProjPathLBLMouseClicked(evt);
-            }
-        });
-        getContentPane().add(newProjPathLBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 980, 450, 50));
+        jPanel1.add(sqlPathLBL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 330, 50));
 
         databaseList.setBackground(new java.awt.Color(53, 59, 72));
         databaseList.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -241,7 +279,7 @@ public class MySQLFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(databaseList);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 600, 180, 370));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 180, 370));
 
         selectAllRd.setBackground(new java.awt.Color(53, 59, 72));
         selectAllRd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -252,75 +290,38 @@ public class MySQLFrame extends javax.swing.JFrame {
                 selectAllRdActionPerformed(evt);
             }
         });
-        getContentPane().add(selectAllRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 250, 40));
+        jPanel1.add(selectAllRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 250, 40));
 
-        jPanel1.setBackground(new java.awt.Color(53, 59, 72));
-        jPanel1.setForeground(new java.awt.Color(127, 140, 141));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 1024));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1200));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        softwareName.setEditable(false);
+        softwareName.setBackground(new java.awt.Color(53, 59, 72));
+        softwareName.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        softwareName.setForeground(new java.awt.Color(189, 195, 199));
+        softwareName.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102))));
+        jPanel1.add(softwareName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 260, 50));
 
-        pwdTxt.setBackground(new java.awt.Color(53, 59, 72));
-        pwdTxt.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        pwdTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdTxtActionPerformed(evt);
-            }
-        });
-        jPanel1.add(pwdTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 260, 50));
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Software Name");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 180, 50));
 
-        savePathBtn.setBackground(new java.awt.Color(87, 101, 116));
-        savePathBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        savePathBtn.setForeground(new java.awt.Color(255, 255, 255));
-        savePathBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/file/folder.png"))); // NOI18N
-        savePathBtn.setText("CHANGE PATH");
-        savePathBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savePathBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(savePathBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 980, 280, 50));
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("User Name");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 180, 50));
 
-        executeBar.setBackground(new java.awt.Color(53, 59, 72));
-        executeBar.setForeground(new java.awt.Color(0, 0, 153));
-        jPanel1.add(executeBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 850, 380, 60));
+        userNameTxt.setBackground(new java.awt.Color(53, 59, 72));
+        userNameTxt.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        userNameTxt.setForeground(new java.awt.Color(189, 195, 199));
+        userNameTxt.setText("root");
+        userNameTxt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true), javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(102, 102, 102))));
+        jPanel1.add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 260, 50));
 
-        createBtn.setBackground(new java.awt.Color(87, 101, 116));
-        createBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        createBtn.setForeground(new java.awt.Color(255, 255, 255));
-        createBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/add/java (1).png"))); // NOI18N
-        createBtn.setText("CREATE");
-        createBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1700, 980, 170, 40));
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Password");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 180, 50));
 
-        customizeBtn.setBackground(new java.awt.Color(87, 101, 116));
-        customizeBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        customizeBtn.setForeground(new java.awt.Color(255, 255, 255));
-        customizeBtn.setText("CUTOMIZE");
-        customizeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customizeBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(customizeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 980, 170, 40));
-
-        backBtn.setBackground(new java.awt.Color(87, 101, 116));
-        backBtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        backBtn.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/back/back (6).png"))); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 980, 170, 40));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 67)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
