@@ -1,0 +1,124 @@
+ 
+package crudsoft1;
+
+import components.ComponentMdf;
+import database.Database;
+import database.TableDB;
+import database.connect.ConnectDB;
+import database.connect.DB;
+import database.table.Column1;
+import database.table.Table1;
+import frame.crudsoft.InformUser;
+import frame.crudsoft.TableFrame;
+import function.AddFunctions; 
+import main.DaoPattern;
+import main.File1;
+import java.io.File;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import main.Functions;
+
+/**
+ *
+ * @author tahir hussain
+ */
+public class CrudSoft1 {
+//C:/Users/tahir hussain/Documents/JDBC1/CrudSoft
+//C:/Users/tahir hussain/Documents/JDBC1/CrudSoft
+//C:/Users/tahir hussain/NewProject/CrudeProj    
+    //C:/Users/tahir hussain/Documents/DBandJava/CrudSoft
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String dbName = "sakila";
+//C:/Users/tahir hussain/Documents/JDBC1
+        try {
+            DatabaseMetaData meta = ConnectDB.getConnection(DB.MySQL, dbName).getMetaData();
+            ResultSet rs = meta.getTables(null, null, null, null);
+            String table = "";
+            int i = 0;
+            
+            while (rs.next()) {
+                table += "," + rs.getString(3);
+                System.out.println(table);
+                i++;
+            }
+            
+            table = table.substring(1);
+          //  System.out.println(table);
+
+//  
+            rs.close();
+            Database db = new Database(dbName, TableDB.getTables(dbName, table.split(",")));
+         //   System.out.println(db);
+
+            Table1[] t = db.getTables();
+            System.out.println(t.length);
+            TableFrame tableFrame=new TableFrame(t);
+                tableFrame.setVisible(true);
+                
+/*            
+            System.out.println("========================== \n ========================== ");
+
+                       for(Table1 ta:t){
+            System.out.println("TableName: "+ta.getTableName());
+            System.out.println("Primary Column Name: "+ta.getPrimaryColName());
+            System.out.println("Primary Column Name: "+ta.getPrimaryColName()+" \n ");
+                
+            for(Column1 ca:ta.getColumnsExceptPrimaryKey()){
+                System.out.println("\t----------->"+ca.getColName());
+              }
+            
+
+                       }
+                       
+                       
+
+
+           DaoPattern.createDaoPattern(db);
+
+            /*             
+             File f=File1.createFile(
+                    new File("C:/Users/tahir hussain/Documents/ACS/src/main/frame1"),
+                    new File("C:/Users/tahir hussain/Documents/ACS/src/main/St.java"));
+
+         List<Component1> list=new ArrayList<>();
+        i=1;
+ 
+        int x=255;
+        int y=60;
+        int j=1;
+
+        for(Column1 col:t[0].getColumn()){
+            y=60*i;
+            if(y<530)
+            list.add(new Component1(col,"WHITE", "WHITE",x,y,250,30));
+            else{
+            x+=x;
+            i=0;
+            }
+        i++;
+        }
+        //C:/Users/tahir hussain/Documents/JDBC1/CrudSoft
+        ComponentGenerator.setComponents(f.getAbsolutePath(), t[0], 'V', list);      
+      
+             */
+            //  ProjectGenerator.projectGenerator("C:/Users/tahir hussain/Documents/JDBC1/", Functions.getJcName(dbName));
+            //C:\Users\tahir hussain\Documents\CrudeProjects\Sakila
+            //File newProjectFile=new File("C:/Users/tahir hussain/Documents/JDBC1/Sakila");
+           /* StringBuilder sb = new StringBuilder();
+            //System.out.println(File1.getFilePath(newProjectFile,sb));
+
+//add beans add function
+    AddFunctions.addFunction(db);
+*/
+        } catch (SQLException e) {
+           new InformUser("JDBC Error",e.toString(),"/frame/newsoftframe/images/information/info (1).png","/frame/newsoftframe/images/cancel/can.png","/frame/newsoftframe/images/ok/ok.png").setVisible(true);
+             }
+
+    }
+
+}
+

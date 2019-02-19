@@ -1,0 +1,141 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.database.connect;
+ 
+//import frame.crudsoft.InformUser;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author tahir hussain
+ */
+public class ConnectDB {
+
+    static Connection con;
+    static String dbName;
+    Enum db;
+
+    private ConnectDB() {
+        if (db == null) {
+            db = DB.MySQL;
+        }
+
+        try {
+            if (db == DB.MySQL) {
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, "root", "");
+            }
+            //con.prepareStatement("").e;
+
+            System.out.println("connected");
+        } catch (SQLException ex) {///src/frame/newsoftframe/images/cancel/can.png
+           // new InformUser("JDBC Error", ex.toString(), "/frame/newsoftframe/images/information/info (1).png", "/frame/newsoftframe/images/cancel/can.png", "/frame/newsoftframe/images/ok/ok.png").setVisible(true);
+JOptionPane.showMessageDialog(null,ex.getMessage());       
+ }
+    }
+   private ConnectDB(String dbName) {
+        
+        if (db == null) {
+            db = DB.MySQL;
+        }
+
+        try {
+            if (db == DB.MySQL) {
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, "root", "");
+            }
+            //con.prepareStatement("").e;
+
+            System.out.println("connected");
+        } catch (SQLException ex) {///src/frame/newsoftframe/images/cancel/can.png
+            //new InformUser("JDBC Error", ex.toString(), "/frame/newsoftframe/images/information/info (1).png", "/frame/newsoftframe/images/cancel/can.png", "/frame/newsoftframe/images/ok/ok.png").setVisible(true);
+JOptionPane.showMessageDialog(null,ex.getMessage());        
+}
+    }
+
+
+   private ConnectDB(String dbName,String userName,String pwd){
+        if (db == null) {
+            db = DB.MySQL;
+        }
+         try {
+            if (db == DB.MySQL) {
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, userName, pwd);
+            }
+            //con.prepareStatement("").e;
+
+            System.out.println("connected");
+        } catch (SQLException ex) {///src/frame/newsoftframe/images/cancel/can.png
+            //new InformUser("JDBC Error", ex.toString(), "/frame/newsoftframe/images/information/info (1).png", "/frame/newsoftframe/images/cancel/can.png", "/frame/newsoftframe/images/ok/ok.png").setVisible(true);
+        }
+   
+   }
+
+    private ConnectDB(Database db) {
+
+        if (db == null) {
+            throw new NullPointerException("Database is not specified");
+        }
+
+        if (db.getDBType() == null) {
+            db.setDBType(DB.MySQL);
+        }
+try{
+           if (db.getDBType() == DB.MySQL) {
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db.getDbName(), "root", "");
+            }
+            //con.prepareStatement("").e;
+    
+        System.out.println("connected");
+}catch(SQLException e){
+    JOptionPane.showMessageDialog(null,e.getMessage());
+}         
+
+    }
+
+    public static Connection getConnection(Enum db, String dbn) {
+        dbName = dbn;
+
+        if (con == null) {
+            new ConnectDB();
+        }
+        return con;
+    }
+
+ public static Connection getConnection(String dbName,String userName,String password) {
+        if (con == null) {
+            new ConnectDB(dbName,userName,password);
+        }
+        return con;
+    }
+
+    public static Connection getConnection(Database db) {
+        
+        try {
+
+            if (con == null) {
+                new ConnectDB(db);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return con;
+    }
+    
+    public static Connection getConnection(String dbName) {
+        
+        try {
+
+            if (con == null) {
+                new ConnectDB(dbName);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return con;
+    }
+}

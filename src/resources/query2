@@ -1,0 +1,719 @@
+
+/*        
+ * To change this license header, choose License Headers in Project Properties.        
+ * To change this template file, choose Tools | Templates        
+ * and open the template in the editor.        
+ */   
+package com.utility;   
+   
+import com.database.connect.ConnectDB;   
+import java.math.BigDecimal;   
+import java.sql.Connection;   
+import java.sql.PreparedStatement;   
+import java.sql.ResultSet;   
+import java.sql.ResultSetMetaData;   
+import java.sql.RowId;   
+import java.sql.SQLException;   
+import java.sql.Timestamp;   
+import java.sql.Types;   
+import java.text.ParseException;   
+import java.text.SimpleDateFormat;   
+import java.util.ArrayList;   
+import java.util.Date;   
+import java.util.InputMismatchException; 
+import java.util.List;   
+import javax.swing.JOptionPane;   
+   
+/**   
+ *   
+ * @author tahir hussain   
+ */   
+public class Query {   
+   
+    public static String[] getValueForDB(Object[] obj) {   
+        String[] value = new String[obj.length];   
+   
+        for (Object object : obj) {   
+            /*            
+        if(object instanceof String){        
+                    
+                    
+            }        
+            else        
+                if(object instanceof Integer){        
+                        
+                }        
+            else        
+                if(object instanceof Long){        
+                                    
+            }        
+            else        
+                if(object instanceof Double){        
+                                        
+                                        
+                }             
+            else        
+                    if(object instanceof Timestamp){        
+                            
+                    }        
+            else        
+                        if(object instanceof Date){        
+                                
+                                
+                        }        
+                                      
+             */   
+   
+            System.out.println("Object: " + object);   
+        }   
+   
+        return value;   
+    }   
+   
+    /*      
+    public static PreparedStatement getPreparedStatement(String[] colName, Object[] values, PreparedStatement pre, ResultSet resultSet) {      
+        //String tableName, String[] colName, String[] values, String andOr        
+      
+      
+        try {      
+            ResultSetMetaData meta = resultSet.getMetaData();      
+            Integer col_len = meta.getColumnCount();      
+      
+            for (int i = 0; i < col_len; i++) {      
+                      
+//                if (colName[i] != null && !colName[i].equals("") && values[i] != null && !values[i].equals("")) {      
+//                    System.out.println(" ============== >>>>>> " + colName[i] + " <<<<<<=================    " + values[i]);      
+      
+                    if(colName[i]){      
+                              
+                    switch (meta.getColumnType(i + 1)) {      
+                        case Types.ARRAY:      
+                            System.out.println("ARRAY");      
+                            break;      
+                        case Types.BIGINT:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setInt(col_len, i);      
+                            pre.setLong(getPosition(colName, values, i), Long.parseLong(values[i].toString()));      
+                            break;      
+      
+                        case Types.BINARY:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            break;      
+      
+                        case Types.BIT:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            break;      
+      
+                        case Types.BLOB:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            // pre.setBlob(getPosition(colName, values, i),);      
+                            break;      
+      
+                        case Types.BOOLEAN:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setBoolean(getPosition(colName, values, i), Boolean.parseBoolean(values[i].toString()));      
+                            break;      
+                        case Types.CHAR:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+                            break;      
+                        case Types.CLOB:      
+                            System.out.println("CLOB");      
+                            //pre.setClob(getPosition(colName,values,i),);      
+                            break;      
+                        case Types.DATALINK:      
+                            System.out.println("DATALINK");      
+                            break;      
+                        case Types.DATE:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            System.out.println("DATE");      
+                            if (values[i] instanceof java.sql.Date) {      
+                                pre.setDate(getPosition(colName, values, i), (java.sql.Date) values[i]);      
+                            } else {      
+                                pre.setDate(getPosition(colName, values, i), new java.sql.Date(((java.util.Date) values[i]).getDate()));      
+                            }      
+                            break;      
+                        case Types.DECIMAL:      
+                            System.out.println("DECIMAL");      
+                            pre.setBigDecimal(getPosition(colName, values, i), new BigDecimal(values[i].toString()));      
+                            break;      
+                        case Types.DISTINCT:      
+                            System.out.println("DISTINCT");      
+                            //pre.setDouble(getPosition(colName, values, i), Double.parseDouble(values[i].toString()));      
+                            break;      
+                        case Types.DOUBLE:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setDouble(getPosition(colName, values, i), Double.parseDouble(values[i].toString()));      
+                            break;      
+                        case Types.FLOAT:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setFloat(getPosition(colName, values, i), Float.parseFloat(values[i].toString()));      
+                            break;      
+                        case Types.INTEGER:      
+                            System.out.println("INTEGER");      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            break;      
+                        case Types.JAVA_OBJECT:      
+                            System.out.println("JAVA_OBJECT");      
+                            pre.setObject(getPosition(colName, values, i), values[i]);      
+                            break;      
+                        case Types.LONGNVARCHAR:      
+                            System.out.println("LONGNVARCHAR");      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+                            break;      
+                        case Types.LONGVARBINARY:      
+                            System.out.println("LONGVARBINARY");      
+      
+                            pre.setLong(getPosition(colName, values, i), Long.parseLong(values[i].toString()));      
+                            break;      
+                        case Types.LONGVARCHAR:      
+                            System.out.println("LONGVARCHAR");      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+                            break;      
+                        case Types.NCHAR:      
+                            System.out.println("NCHAR");      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+                            break;      
+                        case Types.NCLOB:      
+                            System.out.println("NCLOB");      
+      
+                            break;      
+                        case Types.NULL:      
+                            System.out.println("NULL");      
+                            //pre.setNull(getPosition(colName, values, i), Integer.parseInt(values[i]));      
+                            break;      
+                        case Types.NUMERIC:      
+                            System.out.println("NUMERIC");      
+                            pre.setDouble(getPosition(colName, values, i), Double.parseDouble(values[i].toString()));      
+      
+                            break;      
+                        case Types.NVARCHAR:      
+                            System.out.println("NVARCHAR");      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+      
+                            break;      
+                        case Types.OTHER:      
+                            System.out.println("OTHER");      
+                            break;      
+                        case Types.REAL:      
+                            System.out.println("REAL");      
+      
+                            pre.setDouble(getPosition(colName, values, i), Double.parseDouble(values[i].toString()));      
+      
+                            break;      
+                        case Types.REF:      
+                            System.out.println("REF");      
+                            //setFun += String.format(colVar.concat("Txt") + ".getText(),\n");      
+                            break;      
+                        case Types.ROWID:      
+                            System.out.println("ROWID");      
+                            //pre.setRowId(getPosition(colName, values, i),   values[i]);      
+                            break;      
+                        case Types.SMALLINT:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            System.out.println(values[i].toString());      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            //pre.setShort(getPosition(colName,values,i),Short.parseShort(values[i].toString()));      
+                            break;      
+                        case Types.SQLXML:      
+                            System.out.println("SQLXML");      
+      
+                            break;      
+      
+                        case Types.STRUCT:      
+      
+                            System.out.println("STRUCT");      
+                            break;      
+                        case Types.TIME:      
+                        case Types.TIMESTAMP:      
+                        case Types.TIMESTAMP_WITH_TIMEZONE:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            System.out.println("Postion:- " + getPosition(colName, values, i));      
+      
+                            if (values[i] instanceof java.sql.Date) {      
+                                pre.setTimestamp(getPosition(colName, values, i), new java.sql.Timestamp(((java.sql.Date) values[i]).getTime()));      
+                            } else {      
+                                pre.setTimestamp(getPosition(colName, values, i), new Timestamp(((java.util.Date) values[i]).getTime()));      
+                            }      
+                            break;      
+                        case Types.TINYINT:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i));      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            //pre.setShort(getPosition(colName,values,i),Short.parseShort(values[i].toString()));      
+                            break;      
+                        case Types.VARBINARY:      
+                            System.out.println("VARBINARY");      
+                            pre.setInt(getPosition(colName, values, i), Integer.parseInt(values[i].toString()));      
+                            break;      
+                        case Types.VARCHAR:      
+                            System.out.println("Colname " + colName[i] + "  position: " + getPosition(colName, values, i) + " " + values[i]);      
+                            pre.setString(getPosition(colName, values, i), values[i].toString());      
+                    }      
+      
+                }      
+      
+            }      
+      
+        } catch (SQLException e) {      
+            JOptionPane.showMessageDialog(null, e);      
+        } catch (NumberFormatException e) {      
+            JOptionPane.showMessageDialog(null, e);      
+        }      
+      
+        return pre;      
+    }      
+     */   
+    public static PreparedStatement getPreparedStatement(String[] colName, Object[] values, PreparedStatement pre, ResultSet resultSet) {   
+        //String tableName, String[] colName, String[] values, String andOr        
+//colName is where all column name exits,       
+// values of colName exist inside the values variable, colName and values must be correct      
+//      
+        try {   
+            System.out.println("col Names");   
+            for(String c:colName){   
+            System.out.println(c);   
+            }   
+            System.out.println("col values");   
+            for(Object c:values){   
+            System.out.println(c);   
+            }   
+            System.out.println("======end value===");   
+            ResultSetMetaData meta = resultSet.getMetaData();   
+            Integer col_len = meta.getColumnCount();  
+            System.out.println(""+meta.getColumnName(1));  
+            int co = colName.length;   
+            int index=0;  
+            for (int j = 0; j < co; j++) {   
+                  
+                for (int i = 0; i < col_len; i++) {   
+   
+                    System.out.println(" "+colName[j] +"  << checkin >> "+meta.getColumnName(i + 1));  
+                    if (colName[j].equals(meta.getColumnName(i + 1))) {   
+   
+                        System.out.println("\n\n");   
+                        System.out.println(colName[j] + "<-- Matched -->" + meta.getColumnName(i + 1));   
+                        switch (meta.getColumnType(i + 1)) {   
+                            case Types.ARRAY:   
+                                System.out.println("ARRAY");   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                break;   
+                            case Types.BIGINT:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+   
+                                pre.setLong(index+1, Long.parseLong(values[index++].toString()));   
+                                break;   
+   
+                            case Types.BINARY:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                break;   
+   
+                            case Types.BIT:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                break;   
+   
+                            case Types.BLOB:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                // pre.setBlob(index+1,);      
+                                break;   
+   
+                            case Types.BOOLEAN:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                pre.setBoolean(index+1, Boolean.parseBoolean(values[index++].toString()));   
+                                break;   
+                            case Types.CHAR:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                pre.setString(index+1, values[index++].toString());   
+                                break;   
+                            case Types.CLOB:   
+                                System.out.println("CLOB");   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                //pre.setClob(getPosition(colName,values,i),);      
+                                break;   
+                            case Types.DATALINK:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                System.out.println("DATALINK");   
+                                break;   
+                            case Types.DATE:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                System.out.println("DATE");   
+                                if (values[index] instanceof java.sql.Date) {   
+                                    System.out.println("sql date");   
+   
+                                    pre.setDate(index+1, (java.sql.Date) values[index++]);   
+                                } else {   
+                                    System.out.println("util date:" + (new java.sql.Date(((java.util.Date) values[index]).getTime())));   
+                                    pre.setDate(index+1, new java.sql.Date(((java.util.Date) values[index++]).getTime()));   
+                                }   
+                                break;   
+                            case Types.DECIMAL:   
+                                System.out.println("DECIMAL");   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                pre.setBigDecimal(index+1, new BigDecimal(values[index++].toString()));   
+                                break;   
+                            case Types.DISTINCT:   
+                                System.out.println("DISTINCT");   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                //pre.setDouble(index+1, Double.parseDouble(values[index++].toString()));      
+                                break;   
+                            case Types.DOUBLE:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                pre.setDouble(index+1, Double.parseDouble(values[index++].toString()));   
+                                break;   
+                            case Types.FLOAT:   
+                                System.out.println("Colname " + colName[index] + "  position: " + index);   
+                                pre.setFloat(index+1, Float.parseFloat(values[index++].toString()));   
+                                break;   
+                            case Types.INTEGER:   
+                                System.out.println("INTEGER");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                break;   
+                            case Types.JAVA_OBJECT:   
+                                System.out.println("JAVA_OBJECT");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                pre.setObject(index+1, values[index++]);   
+                                break;   
+                            case Types.LONGNVARCHAR:   
+                                System.out.println("LONGNVARCHAR");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                pre.setString(index+1, values[index++].toString());   
+                                break;   
+                            case Types.LONGVARBINARY:   
+                                System.out.println("LONGVARBINARY");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+   
+                                pre.setLong(index+1, Long.parseLong(values[index++].toString()));   
+                                break;   
+                            case Types.LONGVARCHAR:   
+                                System.out.println("LONGVARCHAR");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                pre.setString(index+1, values[index++].toString());   
+                                break;   
+                            case Types.NCHAR:   
+                                System.out.println("NCHAR");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+                                pre.setString(index+1, values[index++].toString());   
+                                break;   
+                            case Types.NCLOB:   
+                                System.out.println("NCLOB");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+   
+                                break;   
+                            case Types.NULL:   
+                                System.out.println("NULL");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                //pre.setNull(index+1, Integer.parseInt(values[index++]));      
+                                break;   
+                            case Types.NUMERIC:   
+                                System.out.println("NUMERIC");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+                                pre.setDouble(index+1, Double.parseDouble(values[index++].toString()));   
+   
+                                break;   
+                            case Types.NVARCHAR:   
+                                System.out.println("NVARCHAR");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+                                pre.setString(index+1, values[index++].toString());   
+   
+                                break;   
+                            case Types.OTHER:   
+                                System.out.println("OTHER");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                break;   
+                            case Types.REAL:   
+                                System.out.println("REAL");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+   
+                                pre.setDouble(index+1, Double.parseDouble(values[index++].toString()));   
+   
+                                break;   
+                            case Types.REF:   
+                                System.out.println("REF");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                //setFun += String.format(colVar.concat("Txt") + ".getText(),\n");      
+                                break;   
+                            case Types.ROWID:   
+                                System.out.println("ROWID");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                //pre.setRowId(index+1,   values[index++]);      
+                                break;   
+                            case Types.SMALLINT:   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                System.out.println(values[index].toString());   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                //pre.setShort(getPosition(colName,values,i),Short.parseShort(values[index++].toString()));      
+                                break;   
+                            case Types.SQLXML:   
+                                System.out.println("SQLXML");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+   
+                                break;   
+   
+                            case Types.STRUCT:   
+   
+                                System.out.println("STRUCT");   
+                                break;   
+                            case Types.TIME:   
+                            case Types.TIMESTAMP:   
+                            case Types.TIMESTAMP_WITH_TIMEZONE:   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+   
+                                if (values[index] instanceof java.sql.Date) {   
+                                    pre.setTimestamp(index+1, new java.sql.Timestamp(((java.sql.Date) values[index++]).getTime()));   
+                                } else {   
+                                    pre.setTimestamp(index+1, new Timestamp(((java.util.Date) values[index++]).getTime()));   
+                                }   
+                                break;   
+                            case Types.TINYINT:   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index);   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                //pre.setShort(getPosition(colName,values,i),Short.parseShort(values[index++].toString()));      
+                                break;   
+                            case Types.VARBINARY:   
+                                System.out.println("VARBINARY");   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+                                pre.setInt(index+1, Integer.parseInt(values[index++].toString()));   
+                                break;   
+                            case Types.VARCHAR:   
+                                System.out.println("Colname " +colName[index]+ "  position: " + index + " " + values[index]);   
+                                pre.setString(index+1, values[index++].toString());   
+                        }   
+                           
+                        System.out.println("\n\n");   
+                        break;   
+                    }   
+                }   
+   
+            }   
+   
+        }catch(NullPointerException e){ 
+            JOptionPane.showMessageDialog(null, e); 
+        } 
+        catch(InputMismatchException ex){ 
+            JOptionPane.showMessageDialog(null, ex); 
+        }  
+        catch (SQLException e) {   
+            JOptionPane.showMessageDialog(null, e);   
+            e.printStackTrace();   
+        } catch (NumberFormatException e) {   
+            JOptionPane.showMessageDialog(null, e);   
+            e.printStackTrace();   
+        }   
+   
+        return pre;   
+    }   
+   
+    public static Integer insert(String dbName, String tableVar, String[] colName, Object[] values, String[] heading) {   
+        Integer i = -1;   
+        System.out.println(" insertion--->" + dbName + " " + tableVar + " ");   
+        //generating insert query;        
+   
+        String col = getColumnsAndValues(colName, values, heading);   
+        String[] columns = col.split(",");   
+        Object[] objectValues = getValues(values, heading);   
+   
+        int length = columns.length;   
+        String ac = "(" + col + ") ";   
+        String acv = "";   
+        for (int j = 0; j < length; j++) {   
+            acv += ",?";   
+        }   
+        ac += " VALUES (" + acv.replaceFirst(",", "") + " )";   
+        String insertQuery = " INSERT INTO " + tableVar + " " + ac;   
+        Connection con = ConnectDB.getConnection(dbName);   
+        System.out.println("QUERY-------------->" + insertQuery);   
+   
+        try {   
+            PreparedStatement pre = con.prepareStatement(insertQuery);   
+            pre = getPreparedStatement(columns, objectValues, pre, getResultSet(dbName, tableVar));   
+            i = pre.executeUpdate();   
+        if(i==1) 
+            JOptionPane.showMessageDialog(null, "one row has been inserted into the "+tableVar); 
+        } catch (SQLException ex) {   
+            ex.printStackTrace();   
+        }   
+   
+        return i;   
+   
+    }   
+   
+    public static String getColumnsAndValues(String[] columns, Object[] values, String[] heading) {   
+        int i = 0;   
+        int length = columns.length;   
+        String col = "";   
+        do {   
+            if (values[i] == null || values[i].toString().trim().equals("")   
+                    || values[i].toString().equals("null") || values[i].toString().equals(heading[i])); else {   
+                col += "," + columns[i];   
+            }   
+            i++;   
+        } while (i != length);   
+        return col.replaceFirst(",", "");   
+    }   
+   
+    /*        
+    public static ResultSet query(String[] colName, Object[] values, PreparedStatement pre, ResultSet resultSet) {        
+        ResultSet resultSet=null;        
+  /*      try {        
+            PreparedStatement pre1 = getPreparedStatement(colName, values, pre, resultSet);        
+            resultSet = pre.executeQuery();        
+        
+        } catch (SQLException e) {        
+            e.printStackTrace();        
+        }        
+            
+        return resultSet;        
+    }        
+     */   
+/*   
+//    public static Integer queryUpdate(Database db,String tableName,String priOrUniCol,String[] colName, Object[] values,ResultSet resultSet) {        
+    public static Integer update(String dbName, String tableVar, String priColName, String[] colName, Object[] values, String[] heading) {   
+        Integer i = 0;   
+        String query = "UPDATE " + tableVar + " SET ";   
+        Integer len = colName.length;   
+        String cl = "";   
+        String priCol = "";   
+        for (Integer j = 0; j < len; j++) {   
+            if (colName[j].equals(colName[j])) {   
+                priCol = values[j].toString();   
+            }   
+               
+            if (values[j] == null || values[j].toString().trim().equals("") || values[j].toString().trim().equals(":null") || colName[j].equals(priColName)) {   
+                values[j] = "";   
+                continue;   
+            }   
+               
+            cl += "," + colName[j] + "=?";   
+        }   
+        cl = cl.replaceFirst(",", "");   
+        query = query + cl + " where " + priColName + "=" + priCol;   
+        System.out.println("update query:----->" + query);   
+        try {   
+            PreparedStatement pre = ConnectDB.getConnection(dbName).prepareStatement(query);   
+            pre = getPreparedStatement(colName, values, pre, getResultSet(dbName, tableVar));   
+   
+            i = pre.executeUpdate();   
+            JOptionPane.showMessageDialog(null, "i=" + i);   
+        } catch (SQLException e) {   
+            e.printStackTrace();   
+   
+        }   
+   
+        if (i == 1) {   
+            JOptionPane.showMessageDialog(null, "1 row updated");   
+        }   
+        return i;   
+    }   
+*/   
+       
+//    public static Integer queryUpdate(Database db,String tableName,String priOrUniCol,String[] colName, Object[] values,ResultSet resultSet) {        
+    public static Integer update(String dbName, String tableVar, String priColName, String[] colName, Object[] values, String[] heading) {   
+        Integer i = 0;   
+        String query = "UPDATE " + tableVar + " SET ";   
+        Integer len = colName.length;   
+        String cl = "";   
+        String priCol = "";   
+        List<Object> objectValues=new ArrayList<>();   
+        String colN="";  
+        for (Integer j = 0; j < len; j++) {   
+            if (colName[j].equals(priColName)) {   
+                priCol = values[j].toString();   
+            continue;   
+            }   
+               
+            if (values[j] == null || values[j].toString().trim().equals("") || values[j].toString().trim().equals("null") 
+                    || colName[j].equals(priColName) || values[j].toString().equals(heading[j])) {   
+                continue;   
+            }else{   
+            objectValues.add(values[j]);   
+            }   
+            cl += "," + colName[j] + "=?";   
+            colN+=","+colName[j];  
+        }   
+         colN=colN.replaceFirst(",", "");  
+        cl = cl.replaceFirst(",", "");   
+        query = query +"   "+ cl + " where " + priColName + "=" + priCol;   
+        System.out.println("update query:----->" + query);   
+        try {   
+            PreparedStatement pre = ConnectDB.getConnection(dbName).prepareStatement(query);   
+            pre = getPreparedStatement(colN.split(","), objectValues.toArray(), pre, getResultSet(dbName, tableVar));   
+   
+            i = pre.executeUpdate();   
+        } catch (SQLException e) {   
+            e.printStackTrace();   
+   
+        }   
+   
+        if (i == 1) {   
+            JOptionPane.showMessageDialog(null, "1 row is updated");   
+        }   
+        return i;   
+    }   
+        
+    public static Integer delete(String dbName, String tableVar, String priCol, String[] colName, Object[] values, String[] heading) {   
+        Integer i = -1;   
+        System.out.println(" deletion--->" + dbName + " " + tableVar + " " + " " + priCol);   
+        return i;   
+    }   
+   
+    public static ResultSet getResultSet(String dbName, String tableVar) {   
+        ResultSet rs = null;   
+        try {   
+            rs = ConnectDB.getConnection(dbName).prepareStatement("SELECT * FROM " + tableVar).executeQuery();   
+        } catch (SQLException e) {   
+            e.printStackTrace();   
+        }   
+        return rs;   
+    }   
+   
+//            
+//    public static String getValue(String[] colName){        
+//        String str="";        
+//        for(String s:colName){        
+//        String.format( "%s %n", (str+=" "+s));        
+//        }        
+//    return str;        
+//    }        
+    public static Integer getPosition(String[] colName, Object[] values, Integer columnIndex) {   
+        Integer col_len = colName.length;   
+        //left selected        
+        Integer ls = 0;   
+        // left not selected        
+        Integer lns = 0;   
+   
+        for (Integer i = columnIndex - 1; i >= 0; i--) {   
+            if (colName[i] != null && !colName[i].equals("") && values[i] != null && !values[i].toString().equals("")) {   
+                ls++;   
+            } else if ((colName[i] == null || colName[i].equals("")) || (values[i] == null || values[i].toString().equals(""))) {   
+                lns++;   
+            }   
+        }   
+   
+        return columnIndex - lns + 1;   
+    }   
+   
+    private static Object[] getValues(Object[] values, String[] heading) {   
+   
+        List<Object> obj = new ArrayList<>();   
+        int i = 0;   
+        int length = values.length;   
+        do {   
+            if (values[i] == null || values[i].toString().trim().equals("")   
+                    || values[i].toString().equals("null") || values[i].toString().equals(heading[i])); else {   
+                obj.add(values[i]);   
+            }   
+            i++;   
+        } while (i != length);   
+   
+        return obj.toArray();   
+    }   
+   
+}   

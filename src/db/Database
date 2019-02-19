@@ -1,0 +1,112 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.database.connect;
+
+/**
+ *
+ * @author tahir hussain
+ */
+public class Database{
+    
+    
+    public Database(String dbName) {
+        this.dbName = dbName;
+        db=DB.MySQL;
+        this.userName = "root";
+        this.password = "";
+        this.driver = "com.mysql.jdbc.Driver";
+    }
+
+    public Database(DB db,String dbName, String userName, String password, String driver) {
+        this.db=db;
+        this.dbName = dbName;
+        this.userName = userName;
+        this.password = password;
+        this.driver = driver;
+    }
+    
+    public Database(String dbName,String userName,String password){
+           db=DB.MySQL;
+        this.dbName=dbName;
+        this.userName=userName;
+        this.password=password;
+        this.driver = "com.mysql.jdbc.Driver";
+        this.url="jdbc:mysql://localhost/"+dbName;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public void setDB(DB db){
+    this.db=db;
+    }
+
+    public DB getDB(){
+    return this.db;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public DB getDb() {
+        return db;
+    }
+
+    public void setDb(DB db) {
+        this.db = db;
+    }
+
+    private String url;
+    private String dbName;
+    private String userName;
+    private String password;
+    private String driver;
+    private DB db=DB.MySQL;
+    private DB DBType;
+
+    public DB getDBType() {
+        return DBType;
+    }
+
+    public void setDBType(DB DBType) {
+        this.DBType = DBType;
+    }
+    
+}

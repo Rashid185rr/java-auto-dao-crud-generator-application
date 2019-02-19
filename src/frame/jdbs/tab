@@ -1,0 +1,146 @@
+tableTab1.setPreferredSize(new java.awt.Dimension(1458, 673));
+        tableTab1.setLayout(null);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        tableTab1.add(jLayeredPane1);
+        jLayeredPane1.setBounds(813, 47, 0, 0);
+
+        insertChk.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk.setText("INSERT");
+        insertChk.setOpaque(true);
+        insertChk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChkActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk);
+        insertChk.setBounds(849, 320, 158, 42);
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        jLabel2.setText("Buttons");
+        tableTab1.add(jLabel2);
+        jLabel2.setBounds(819, 147, 364, 73);
+
+        allBtnRD.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        allBtnRD.setText("Select All");
+        tableTab1.add(allBtnRD);
+        allBtnRD.setBounds(819, 267, 138, 35);
+
+        tableNameLBL1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        tableNameLBL1.setText("TABLENAMEHERE");
+        tableTab1.add(tableNameLBL1);
+        tableNameLBL1.setBounds(290, 6, 452, 111);
+        tableTab1.add(columnSelectedLBL);
+        columnSelectedLBL.setBounds(140, 219, 114, 47);
+
+        columnList1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        columnList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                columnList1ValueChanged(evt);
+            }
+        });
+        scrollPane1.setViewportView(columnList1);
+
+        tableTab1.add(scrollPane1);
+        scrollPane1.setBounds(20, 92, 250, 416);
+
+        insertChk1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk1.setText("DELETE");
+        insertChk1.setOpaque(true);
+        insertChk1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk1ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk1);
+        insertChk1.setBounds(850, 360, 158, 42);
+
+        insertChk2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk2.setText("VIEW");
+        insertChk2.setOpaque(true);
+        insertChk2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk2ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk2);
+        insertChk2.setBounds(1010, 360, 158, 42);
+
+        insertChk3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk3.setText("UPDATE");
+        insertChk3.setOpaque(true);
+        insertChk3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk3ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk3);
+        insertChk3.setBounds(850, 410, 158, 42);
+
+        columnSelectedLBL1.setText("Columns Selected");
+        tableTab1.add(columnSelectedLBL1);
+        columnSelectedLBL1.setBounds(20, 520, 114, 47);
+
+        allColumnRd1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        allColumnRd1.setText("Select All");
+        tableTab1.add(allColumnRd1);
+        allColumnRd1.setBounds(20, 39, 138, 35);
+
+        insertChk4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk4.setText("VIEW");
+        insertChk4.setOpaque(true);
+        insertChk4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk4ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk4);
+        insertChk4.setBounds(850, 450, 158, 42);
+
+        insertChk5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk5.setText("CANCEL");
+        insertChk5.setOpaque(true);
+        insertChk5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk5ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk5);
+        insertChk5.setBounds(850, 490, 158, 42);
+
+        insertChk6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk6.setText("BACK");
+        insertChk6.setOpaque(true);
+        insertChk6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk6ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk6);
+        insertChk6.setBounds(1010, 310, 158, 42);
+
+        insertChk7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        insertChk7.setText("NEXT");
+        insertChk7.setOpaque(true);
+        insertChk7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertChk7ActionPerformed(evt);
+            }
+        });
+        tableTab1.add(insertChk7);
+        insertChk7.setBounds(1010, 400, 158, 42);
+
+        jTabbedPane1.addTab("Table", tableTab1);
+
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1359, -1));
+

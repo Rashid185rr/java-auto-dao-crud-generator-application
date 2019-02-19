@@ -1,0 +1,344 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package database;
+
+import database.connect.ConnectDB;
+import database.connect.DB;
+import database.table.Column1;
+import database.table.Table1;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author tahir hussain
+ */
+public class TableDB {
+
+    private String tableName;
+
+  /*  public static Column1[] getColumns(Table1[] table,String tableName) {
+        Column1[] column1 = null;
+        try{
+            DatabaseMetaData meta = null;
+            Connection con = ConnectDB.getConnection(DB.MySQL, tableName);
+            meta = con.getMetaData();
+            //checking
+            ResultSet rsa = meta.getColumns(null, null, null, null);
+            
+            int col_len=rsa.getMetaData().getColumnCount();
+            
+            System.out.println("checking column");
+            column1=new Column1[col_len];
+//column and table object will be created below            
+            
+            int i = 0;
+            int j=0;
+
+            while(rsa.next()) {
+
+                if(i==0){
+                     column1[i]=new Column1(
+        rsa.getString(1),
+        rsa.getString(2),
+        rsa.getString(3),
+        rsa.getString(4),
+        rsa.getInt(5),
+        rsa.getString(6), 
+        rsa.getInt(7),
+        rsa.getInt(8),
+        rsa.getInt(9),
+        rsa.getInt(10),
+        rsa.getInt(11),
+        rsa.getString(12),
+        rsa.getString(13),
+        rsa.getInt(14),
+        rsa.getInt(15),
+        rsa.getInt(16),
+        rsa.getInt(17),
+        rsa.getString(18),
+        rsa.getString(19),
+        rsa.getString(20),
+        rsa.getString(21),
+        rsa.getShort(22),
+        rsa.getString(23),
+        null//rsa.getString(24)
+);
+                }
+                    table[j]=new Table1();
+    if(table[j].getTableName().equals(rsa.getString(3))){
+    
+    }
+    else
+        j++;
+    
+     if(i==0 || table[j].getTableName().equals(rsa.getString(3))){
+         
+         
+         rsa.getString(1),
+        rsa.getString(2),
+        rsa.getString(3),
+        rsa.getString(4),
+        rsa.getInt(5),
+        rsa.getString(6), 
+        rsa.getInt(7),
+        rsa.getInt(8),
+        rsa.getInt(9),
+        rsa.getInt(10),
+        rsa.getInt(11),
+        rsa.getString(12),
+        rsa.getString(13),
+        rsa.getInt(14),
+        rsa.getInt(15),
+        rsa.getInt(16),
+        rsa.getInt(17),
+        rsa.getString(18),
+        rsa.getString(19),
+        rsa.getString(20),
+        rsa.getString(21),
+        rsa.getShort(22),
+        rsa.getString(23),
+        null//rsa.getString(24)
+        
+//        column1[i]=new Column1(
+//        rsa.getString(1),
+//        rsa.getString(2),
+//        rsa.getString(3),
+//        rsa.getString(4),
+//        rsa.getInt(5),
+//        rsa.getString(6), 
+//        rsa.getInt(7),
+//        rsa.getInt(8),
+//        rsa.getInt(9),
+//        rsa.getInt(10),
+//        rsa.getInt(11),
+//        rsa.getString(12),
+//        rsa.getString(13),
+//        rsa.getInt(14),
+//        rsa.getInt(15),
+//        rsa.getInt(16),
+//        rsa.getInt(17),
+//        rsa.getString(18),
+//        rsa.getString(19),
+//        rsa.getString(20),
+//        rsa.getString(21),
+//        rsa.getShort(22),
+//        rsa.getString(23),
+//        null//rsa.getString(24)
+//);
+     }
+System.out.println(column1[i++]);
+//System.out.println(rsa.getString(1)+" "+ rsa.getString(2)+" "+rsa.getString(3)+" "+rsa.getString(4)+" "+rsa.getString(5)+" "+
+//                rsa.getString(6)+" "+ rsa.getString(7)+" "+rsa.getString(8)+" "+rsa.getString(9)+" "+rsa.getString(10));
+            
+}
+            
+            System.out.println("checking column end");
+            
+            //setting column object
+//            PreparedStatement pre = con.prepareStatement("SELECT * FROM " + tableName);
+//            ResultSet rs = pre.executeQuery();
+//            ResultSetMetaData meta1 = rs.getMetaData();
+//            int col_len = meta1.getColumnCount();
+//            List<String> list = new ArrayList<>();
+//            for (i = 1; i <= col_len; i++) {
+//                list.add(meta1.getColumnName(i));
+//
+//            }
+//
+//            System.out.println(list);
+//            column1 = new Column1[col_len];
+//            i = 0;
+//            System.out.println(" \n Columns \n ");
+//            while (rs.next()) {
+//                column1[i] = new Column1(list.get(i), rs.getType());
+//                System.out.println(column1[i]);
+//            }
+//            System.out.println("\n");
+//            for (Column1 col : column1) {
+//                System.out.println(col);
+//            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return column1;
+    }
+    */
+     public static Table1[] getTables(String dbName,String[] tables) {
+       
+         Table1[] table=new Table1[tables.length];
+          
+         
+         try{
+            DatabaseMetaData meta = null;
+            Connection con = ConnectDB.getConnection(DB.MySQL, dbName);
+            meta = con.getMetaData();
+            //checking
+            boolean[] bool=getPrimaryKey(meta,tables);
+            
+            ResultSet rsa = meta.getColumns(null, null, null, null);
+            
+            int col_len=rsa.getMetaData().getColumnCount();
+            System.out.println("checking column");
+            int i = 1;
+            int j=0;
+            List<Column1> list=new ArrayList<>();
+            String tableName="";
+             
+            while(rsa.next()){
+                
+                 if(tableName.equals(""))
+                    tableName=rsa.getString(3);
+                 
+                    if(!tableName.equals(rsa.getString(3))){
+                       System.out.println("====>>> "+tableName);
+                        Column1[] col=new Column1[list.size()];
+                        int index=0;
+                        
+                        for(Column1 c:list){
+                            col[index++]=c;
+                        }
+                        table[j++]=new Table1(tableName,col);
+                        tableName=rsa.getString(3);
+                        list.clear();
+                        
+                    }
+                          list.add(new Column1(rsa.getString(1),
+        rsa.getString(2),rsa.getString(3),rsa.getString(4),rsa.getInt(5),rsa.getString(6),rsa.getInt(7),rsa.getInt(8),rsa.getInt(9),rsa.getInt(10),
+        rsa.getInt(11),rsa.getString(12),rsa.getString(13),rsa.getInt(14),rsa.getInt(15),rsa.getInt(16),rsa.getInt(17),rsa.getString(18),
+        rsa.getString(19),rsa.getString(20),rsa.getString(21),rsa.getShort(22),rsa.getString(23),
+                                  null,bool[i]//rsa.getString(24)
+        ));
+ 
+                     
+                System.out.println(list);
+                i++;
+            } 
+                        Column1[] col=new Column1[list.size()];
+                        int index=0;
+                        for(Column1 c:list){
+                            col[index++]=c;
+                        }
+                        table[j++]=new Table1(tableName,col);
+                        list.clear();
+            System.out.println("checking column end");
+}
+         catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        
+        System.out.println("\n ================== checking table================ \n");
+        for(Table1 d:table)
+        {
+//            System.out.println("TableName: "+d.getTableName());
+//            
+//            System.out.println("ColumnName: \n");
+//            for(Column1 col:d.getColumn())
+//                    System.out.println(col);
+        System.out.println(d);
+        }
+        System.out.println("\n =================    ending checking ===================\n");
+return table;
+    }
+     
+     public static boolean[] getPrimaryKey(DatabaseMetaData meta,String[] tables)throws SQLException{
+         ResultSet rs=meta.getTables( null, null, null,null);
+         int i=1;
+         String s="";
+         while(rs.next()){
+             s+=(rs.getString(3).equals(tables[i++])==true?true:false)+",";
+         }
+         String[] sa=s.substring(s.length()-1).split(",");
+         boolean[] bool=new boolean[sa.length];   
+         i=0;
+         for(String s1:sa){
+            bool[i++]=Boolean.parseBoolean(s1);    
+         }
+         
+         //rs.getString("COLUMN_NAME")!=null   &&  rs.getString("COLUMN_NAME").equals(tableName);
+         
+         i=0;
+         for(boolean bool1:bool)
+             System.out.println(i+"  "+bool1);
+         
+         return bool;
+     }
+/*
+    public static Table1[] getTables(String[] table){
+        Table1[] tables=new Table1[table.length];
+        
+        int i=0;
+        for(String t:table){
+            tables[i]=new Table1(t,getColumns(t));
+            System.out.println(tables[i]);
+        }
+        
+        return tables;
+    }
+  */  
+    public int getColumnType(int i) {
+
+        switch (i) {
+            case Types.ARRAY:
+                return Types.ARRAY;
+
+            case Types.BIGINT:
+
+                return Types.BIGINT;
+
+            case Types.BINARY:
+                return Types.BINARY;
+
+            case Types.BIT:
+                return Types.BIT;
+            case Types.BLOB:
+                return Types.BLOB;
+
+            case Types.BOOLEAN:
+                return Types.BLOB;
+
+            case Types.CHAR:
+                return Types.CHAR;
+
+            case Types.CLOB:
+                return Types.CLOB;
+
+            case Types.DATALINK:
+                return Types.DATALINK;
+
+            case Types.DATE:
+                return Types.DATE;
+
+            case Types.DECIMAL:
+                return Types.DECIMAL;
+
+            case Types.DISTINCT:
+                return Types.DISTINCT;
+            case Types.DOUBLE:
+                return Types.DOUBLE;
+            case Types.FLOAT:
+                return Types.FLOAT;
+            case Types.INTEGER:
+
+                return Types.INTEGER;
+
+            default:
+                break;
+        }
+
+        return -1;
+    }
+
+}
+
