@@ -353,7 +353,7 @@ public class Query {
             pre = getPreparedStatement(columns, objectValues, pre, getResultSet(dbName, tableVar));
             i = pre.executeUpdate();
             if (i == 1) {
-                JOptionPane.showMessageDialog(null, "one row has been inserted into the " + tableVar);
+                JOptionPane.showMessageDialog(null, "Inserted");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -410,13 +410,16 @@ public class Query {
             pre = getPreparedStatement(colN.split(","), objectValues.toArray(), pre, getResultSet(dbName, tableVar));
 
             i = pre.executeUpdate();
+            if (i == 1) {
+                JOptionPane.showMessageDialog(null, "row has been updated ");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
 
         if (i == 1) {
-            JOptionPane.showMessageDialog(null, "1 row is updated");
+            JOptionPane.showMessageDialog(null, "Updated");
         }
         return i;
     }
@@ -452,7 +455,9 @@ public class Query {
             PreparedStatement pre = con.prepareStatement(query); 
             pre = getPreparedStatement(colN.split(","), objectValues.toArray(), pre, getResultSet(dbName, tableVar)); 
             i=pre.executeUpdate(); 
- 
+         if (i == 1) {
+                JOptionPane.showMessageDialog(null, "Deleted" + tableVar);
+            }
         } catch (SQLException e) { 
             e.printStackTrace(); 
         } 
@@ -536,6 +541,7 @@ public class Query {
             String instruction = "";
             String line = "";
             StringBuffer sqlFileContent = new StringBuffer();
+            int counter=0;
             //create database and save it's content to the sqlFileContent
             while ((line = reader.readLine()) != null) {
                 if (line.contains("Database:")) {
@@ -555,13 +561,17 @@ public class Query {
                     }
                 } else if (!line.trim().startsWith("--")) {
 
-                    if (line.contains("USE")) {
+                    if (line.contains("USE") && counter==0) {
                         int start = line.indexOf("USE");
                         start = start + line.substring(start).indexOf("`") + 1;
-                        System.out.println(start);
+                        System.out.println("--------->> Rest contents  \n"+line.substring(start));
+                        
+                        
+                        
                         int end = start + line.substring(start).indexOf("`");
                         System.out.println(line.substring(start, end));
                         dbName = line.substring(start, end);
+                    counter++;
                     }
 
                     sqlFileContent.append(line);

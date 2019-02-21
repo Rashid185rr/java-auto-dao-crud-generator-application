@@ -39,6 +39,7 @@ public class FrameInfo {
             isTable = true;
         }
         title = Functions.getJcName(table.getTableName());
+        System.out.println("Frame title ----->"+title);
         allBtn = true;
         insertBtn = true;
         updateBtn = true;

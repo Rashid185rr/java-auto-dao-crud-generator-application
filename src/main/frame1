@@ -28,30 +28,33 @@ public class JFrameCode extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+    
         panel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         //setAlwaysOnTop(true);
-        setMinimumSize(new java.awt.Dimension(1200, 1024));
-        setPreferredSize(new java.awt.Dimension(1920, 1024));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(1024, 900));
+        setPreferredSize(new java.awt.Dimension(1920, 1200));
+        //getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel.setBackground(new java.awt.Color(PANEL_COLOR));
-        panel.setMinimumSize(new java.awt.Dimension(1500, 10124));
+        panel.setMinimumSize(new java.awt.Dimension(1024, 780));
         panel.setPreferredSize(new java.awt.Dimension(1920, 1200));
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+            .addGap(0, 1024, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10124, Short.MAX_VALUE)
+            .addGap(0, 1024, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        JScrollPane scroll=new JScrollPane();
+        scroll.setViewportView(panel);
+        getContentPane().add(scroll, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>                        

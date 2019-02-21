@@ -351,7 +351,7 @@ public class Query {
             pre = getPreparedStatement(columns, objectValues, pre, getResultSet(dbName, tableVar));
             i = pre.executeUpdate();
             if (i == 1) {
-                JOptionPane.showMessageDialog(null, "one row has been inserted into the " + tableVar);
+                JOptionPane.showMessageDialog(null, "Inserted");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -375,7 +375,6 @@ public class Query {
         return col.replaceFirst(",", "");
     }
 
-//    public static Integer queryUpdate(Database db,String tableName,String priOrUniCol,String[] colName, Object[] values,ResultSet resultSet) {        
     public static Integer update(String dbName, String tableVar, String priColName, String[] colName, Object[] values, String[] heading) {
         Integer i = 0;
         String query = "UPDATE " + tableVar + " SET ";
@@ -408,6 +407,10 @@ public class Query {
             pre = getPreparedStatement(colN.split(","), objectValues.toArray(), pre, getResultSet(dbName, tableVar));
 
             i = pre.executeUpdate();
+        if (i == 1) {
+            JOptionPane.showMessageDialog(null, "Updated");
+        }
+
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -449,7 +452,10 @@ public class Query {
             PreparedStatement pre = con.prepareStatement(query); 
             pre = getPreparedStatement(colN.split(","), objectValues.toArray(), pre, getResultSet(dbName, tableVar)); 
             i=pre.executeUpdate(); 
- 
+ if (i == 1) {
+            JOptionPane.showMessageDialog(null, "Deleted");
+        }
+
         } catch (SQLException e) { 
             e.printStackTrace(); 
         } 

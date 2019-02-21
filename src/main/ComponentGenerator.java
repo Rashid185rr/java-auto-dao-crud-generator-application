@@ -155,6 +155,7 @@ public class ComponentGenerator {
                     break;
                 case Types.BLOB:
                     System.out.println("BLOB");
+                   /*
                     if (importBlob != null) {
                         allImported.append(importBlob);
                     }
@@ -162,7 +163,8 @@ public class ComponentGenerator {
                     allInit.append(getTextField(com, fileName, col_name));
                     declaration.append(String.format("JTextField " + com.getComName() + ";\n"));
                     importBlob = null;
-                    break;
+*/                    
+break;
                 case Types.BOOLEAN:
                     System.out.println("BOOLEAN");
                     if (importRdBtn != null) {
@@ -231,7 +233,7 @@ public class ComponentGenerator {
                 case Types.INTEGER:
                 case Types.JAVA_OBJECT:
                 case Types.LONGNVARCHAR:
-                case Types.LONGVARBINARY:
+                case Types.LONGVARBINARY:// here blob type used, it has been left for you _-_ 
                 case Types.LONGVARCHAR:
                 case Types.NCHAR:
                     System.out.println("NCHAR");
@@ -360,7 +362,7 @@ public class ComponentGenerator {
         declaration.append("JScrollPane scrollPane;\n");
         //constructor
         StringBuilder constr = new StringBuilder();
-        constr.append("super(\""+frame.getAppTitle()+"\");\n");
+        constr.append("super(\""+frame.getTitle()+"\");\n");
         constr.append(
                 impVar + "DaoImpl=new " + tableName + "DaoImpl();\n"
         );
@@ -402,29 +404,32 @@ constr.append("initComponents() ;\n");
         declaration.append("Object[] values;\n");
         declaration.append("String[] colName;\n");
  allImported.append("import com.utility.CheckComponent;");
-int btnX=00;
+int btnX=10;
  if(frame.getBackBtn()){
         declaration.append("JButton backBtn;\n");
         //writing path manually 
-        allInit.append(getButton(new Component1("backBtn", "BACK", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("backBtn", "BACK", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/back/")));
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("backBtn", "back" + "();"));
-}       
+btnX+=200;
+
+ }       
 // add button
 if(frame.getInsertBtn()){
         declaration.append("JButton addBtn;\n");
         String projectName = Functions.getJcName(db.getDbName());
         //writing path manually 
-        allInit.append(getButton(new Component1("addBtn", "ADD", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("addBtn", "ADD", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/add/")));
         //Column1 column, String bgColor, String fgColor, Integer xx, Integer yy, Integer compSizeX, Integer compSizeY
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("addBtn", "add" + tableName + "();"));
+btnX+=200;
 }
 
 // delete button
@@ -432,53 +437,57 @@ if(frame.getDeleteBtn()){
 declaration.append("JButton deleteBtn;\n");
 
         //writing path manually 
-        allInit.append(getButton(new Component1("deleteBtn", "DELETE", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("deleteBtn", "DELETE", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/delete/")));
 
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("deleteBtn", "delete" + tableName + "();"));
+btnX+=200;
 }
 if(frame.getUpdateBtn()){
         // update button
         declaration.append("JButton updateBtn;\n");
         //writing path manually 
-        allInit.append(getButton(new Component1("updateBtn", "UPDATE", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("updateBtn", "UPDATE", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/update/")));
 
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("updateBtn", "update" + tableName + "();"));
+btnX+=200;
 }
        
 if(frame.getViewBtn()){
 // view button
         declaration.append("JButton viewBtn;\n");
         //writing path manually 
-        allInit.append(getButton(new Component1("viewBtn", "VIEW", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("viewBtn", "VIEW", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/view/")));
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("viewBtn", "view" + tableName + "();"));
+btnX+=200;
 }
 
 if(frame.getNextBtn()){
         declaration.append("JButton nextBtn;\n");
         //writing path manually 
-        allInit.append(getButton(new Component1("nextBtn", "NEXT", null, null, btnX+=200, 530, 140, 50),
+        allInit.append(getButton(new Component1("nextBtn", "NEXT", null, null, btnX, 530, 140, 50),
                 "/com/images/"
                 + getCopyPastedImageName(newProjPath + "images/",
                         thisProjPath + "/src/frame/newsoftframe/images/next/")));
         //this function will be implemented in AddFunction class
         allFunction.append(actionPerformed("nextBtn", "next" + "();"));
+btnX+=200;
 }
 
 if(frame.getSearchTxt()){
         // adding searchTxt
-        Component1 comp = new Component1("searchTxt", "Search " + tableName, "53,59,72", "189,195,199",btnX+=200 , 530, 255, 50);
+        Component1 comp = new Component1("searchTxt", "Search " + tableName, "53,59,72", "189,195,199",btnX, 530, 255, 50);
         //alternative solution _-_
         allInit.append(getTextField(comp, fileName, "search"));
         allFunction.append(functionFocusGainLost(comp, "", "//write code for focus lost"));//"\nfillTable("+ tableVar+"DaoImpl.get"+tableName+"AllRecords());\n"
@@ -492,11 +501,12 @@ if(frame.getSearchTxt()){
                         "TableMdf.tableSort(table,searchTxt);\n")));
         declaration.append(String.format("JTextField " + comp.getComName() + ";\n"));
         allImported.append("import java.awt.event.KeyEvent;\n");
+btnX+=200;
 }
         //allFunction.append(mouseClicked("table",""));
         File1.writeFile(fileName, allImported.toString(), constr.toString(), allInit.toString(), allFunction.toString() + declaration.toString());
         //defualt table widht and height      
-        setTable(fileName, table, 10, 600, 1873, 417);
+        setTable(fileName, table, 10, 617, 1350, 573);
 
     }
 
@@ -759,8 +769,8 @@ if(frame.getSearchTxt()){
                 + "        table.setFont(new java.awt.Font(\"sansserif\", 1, 20));\n"
                 + "        table.setForeground(new java.awt.Color(255, 255, 255));\n"
                 + "         table.setModel(TableMdf.getDefaultTableModel(" + Functions.getName(table.getTableName()) + "DaoImpl.get" + Functions.getJcName(table.getTableName()) + "AllRecords()));\n"
-                + "        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(\n"
-                + x + "," + y + "," + width + "," + height + "));\n"
+                +"          panel.add(scrollPane);\n"
+                +           "scrollPane.setBounds("+x + "," + y + "," + width + "," + height + ");\n"
         );
 
         File1.writeFile(fileName, "import javax.swing.JTable;", "", tableCode + addMouseListener("table"), "JTable table;");

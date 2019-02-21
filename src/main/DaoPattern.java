@@ -157,13 +157,14 @@ public class DaoPattern {
                     break;
                 case Types.BLOB:
                     System.out.println("BLOB");
-                    if (imp.indexOf("Blob") == -1) {
+                  /*  if (imp.indexOf("Blob") == -1) {
                         System.out.println("appending blob");
                         imp.append(String.format("import java.sql.Blob;\n"));
                     }
                     constructor.append(String.format("Blob " + colName + ","));
                     var.append(String.format("\tprivate Blob " + colName + ";\n"));
                     getSet.append(getSG(col1, colName, "Blob"));
+                    */
                     break;
                 case Types.BOOLEAN:
                     System.out.println("BOOLEAN");
@@ -179,13 +180,14 @@ public class DaoPattern {
                     break;
                 case Types.CLOB:
                     System.out.println("CLOB");
+                    /*
                     if (imp.indexOf("Clob") == -1) {
                         imp.append(String.format("import java.sql.Clob;\n"));
                     }
                     constructor.append(String.format("Clob " + colName + ","));
                     var.append(String.format("\tprivate Clob " + colName + ";\n"));
                     getSet.append(getSG(col1, colName, "Clob"));
-
+*/
                     break;
                 case Types.DATALINK:
                     System.out.println("DATALINK");
@@ -261,6 +263,7 @@ public class DaoPattern {
                     break;
                 case Types.LONGVARBINARY:
                     System.out.println("LONGVARBINARY");
+                   /*
                     if (imp.indexOf("Blob") == -1) {
                         System.out.println("appending blob");
                         imp.append(String.format("import java.sql.Blob;\n"));
@@ -270,6 +273,8 @@ public class DaoPattern {
 
                     var.append(String.format("private Blob " + colName + ";\n"));
                     getSet.append(getSG(col1, colName, "Blob"));
+                    */
+                    
                     break;
                 case Types.LONGVARCHAR:
                     System.out.println("LONGVARCHAR");
@@ -759,7 +764,7 @@ System.out.println("---> path:"+path);
 
         query = "\"INSERT INTO " + table.getTableName() + " " + query + "\"";
         functionContent = functionContent.replace("QUERYHERE", query);
-        functionContent = functionContent.replace("SETFUNCTION", String.format(setFunction + "\n var=pre.executeUpdate();\n"));
+        functionContent = functionContent.replace("SETFUNCTION", String.format(setFunction + "\n var=pre.executeUpdate(); \n if(var==1){ JOptionPane.showMessageDialog(null,\"Inserted \" );\n}\n"));
         return functionContent;
     }
 
@@ -795,7 +800,7 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
        
            System.out.println("tableName"+tableName);
              
-        functionContent = functionContent.replace("SETFUNCTION", setFunction.append("\n var=pre.executeUpdate();\n"));
+        functionContent = functionContent.replace("SETFUNCTION", setFunction.append("\n var=pre.executeUpdate(); if(var==1){ JOptionPane.showMessageDialog(null,\"Updated\" );\n}\n"));
         return functionContent;
     }
 
@@ -840,7 +845,6 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
                 s[i] = String.format(s[length-1].replace(String.valueOf(length),""+(i+1))+"\n");
                 s[length-1] = t;
             }
-            
             seperated += String.format(s[i].concat(";\n"));
         }
         return seperated;
@@ -874,7 +878,7 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
         String query = "DELETE FROM " + table.getTableName() + " where " + column.getColName() + "=?";
         //String setFunction="pre.set"+ComponentMdf.getType(column)+"(1,"+column.getColName()+");\n";
 
-        String setFunction = ComponentMdf.getSet(column, 1, column.getColName()) + "; \n var=pre.executeUpdate();\n";
+        String setFunction = ComponentMdf.getSet(column, 1, column.getColName()) + "; \n var=pre.executeUpdate(); \n if(var==1){ JOptionPane.showMessageDialog(null,\"Deleted \" );\n}\n";
         functionContent = functionContent.replace("QUERYHERE", "\"" + query + "\"");
         functionContent = functionContent.replace("SETFUNCTION", setFunction);
 
@@ -899,7 +903,7 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
         a=a.replace(","," AND ");
         String query = "DELETE FROM " + table.getTableName() + " where " + a;
         functionContent = functionContent.replace("QUERYHERE", "\"" + query + "\"");
-        functionContent = functionContent.replace("SETFUNCTION", setFunction+"var=pre.executeUpdate();\n");
+        functionContent = functionContent.replace("SETFUNCTION", setFunction+"var=pre.executeUpdate(); \nif(var==1){ JOptionPane.showMessageDialog(null,\"Deleted \" );\n}\n");
 
         return functionContent;
     }

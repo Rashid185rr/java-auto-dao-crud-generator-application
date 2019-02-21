@@ -123,8 +123,8 @@ public class ComponentMdf {
 
             case Types.BLOB:
                 System.out.println("BLOB");
-                return colVar.concat("Txt") + ".getText().getBytes()";
-
+//                return colVar.concat("Txt") + ".getText().getBytes()";
+return "";
             case Types.BOOLEAN:
                 System.out.println("BOOLEAN");
                 return "Boolean.parseBoolean(" + colVar.concat("Rd") + ".getText())";
@@ -180,8 +180,8 @@ public class ComponentMdf {
             case Types.LONGVARBINARY:
                 System.out.println("LONGVARBINARY");
 
-                return "Long.parseBlob( " + colVar.concat("Txt") + ".getText())";
-
+//                return "Long.parseBlob( " + colVar.concat("Txt") + ".getText())";
+                return "";
             case Types.LONGVARCHAR:
                 System.out.println("LONGVARCHAR");
                 return colVar.concat("Txt") + ".getText()";
@@ -270,8 +270,8 @@ public class ComponentMdf {
 
             case Types.BLOB:
                 System.out.println("BLOB");
-                return colVar.concat("Txt") + ".getText()";
-
+//                return colVar.concat("Txt") + ".getText()";
+                return "";
             case Types.BOOLEAN:
                 System.out.println("BOOLEAN");
                 return colVar.concat("Rd") + ".getText()";
@@ -435,8 +435,8 @@ public class ComponentMdf {
                 
             case Types.BLOB:
                 System.out.println("BLOB");
-                return colName + ".getBytes()";
-                
+//                return colName + ".getBytes()";
+                return "";
             case Types.BOOLEAN:
                 System.out.println("BOOLEAN");
                 return "Boolean.parseBoolean(" + colName + ")";
@@ -731,7 +731,7 @@ public class ComponentMdf {
                     break;
                 case Types.BLOB:
                     System.out.println("BLOB");
-                    setFun += String.format(tableVar + "Bean.set" + colName + "(" + colVar.concat("Txt") + ".getText().getBytes());\n");
+//                    setFun += String.format(tableVar + "Bean.set" + colName + "(" + colVar.concat("Txt") + ".getText().getBytes());\n");
                     break;
                 case Types.BOOLEAN:
                     System.out.println("BOOLEAN");
@@ -930,8 +930,8 @@ public class ComponentMdf {
 
             case Types.BLOB:
                 System.out.println("BLOB");
-                return "pre.setBLOB(" + i + "," + value + ")";
-
+//                return "pre.setBLOB(" + i + "," + value + ")";
+                return "";
             case Types.BOOLEAN:
                 System.out.println("BOOLEAN");
                 return "pre.setBoolean(" + i + "," + value + ")";
@@ -981,8 +981,8 @@ public class ComponentMdf {
 
             case Types.LONGVARBINARY:
                 System.out.println("LONGVARBINARY");
-                return "pre.setBlob(" + i + "," + value + ")";
-
+//                return "pre.setBlob(" + i + "," + value + ")";
+                return "";
             case Types.LONGVARCHAR:
                 System.out.println("LONGVARCHAR");
                 return "pre.setString(" + i + "," + value + ")";

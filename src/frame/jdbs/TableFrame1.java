@@ -175,11 +175,11 @@ public class TableFrame1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         tableNameLBL = new javax.swing.JLabel();
         tabPane = new javax.swing.JTabbedPane();
         tableTab1 = new javax.swing.JPanel();
-        columnSelectedLBL = new javax.swing.JLabel();
         selectedScroll = new javax.swing.JScrollPane();
         selectedList = new javax.swing.JList<>();
         allColumnRd1 = new javax.swing.JRadioButton();
@@ -188,7 +188,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         unselectedScroll = new javax.swing.JScrollPane();
         unselectedList = new javax.swing.JList<>();
         removeBtn = new javax.swing.JLabel();
-        columnSelectedLBL4 = new javax.swing.JLabel();
         addBtn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -211,22 +210,26 @@ public class TableFrame1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Table");
         setAlwaysOnTop(true);
+        setFocusTraversalPolicyProvider(true);
         setMaximumSize(new java.awt.Dimension(1920, 1200));
-        setMinimumSize(new java.awt.Dimension(1024, 1024));
-        getContentPane().setLayout(null);
+        setMinimumSize(new java.awt.Dimension(1520, 1200));
+        setPreferredSize(new java.awt.Dimension(1920, 1200));
+        setSize(new java.awt.Dimension(1920, 1200));
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(1920, 1200));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(1500, 1225));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1920, 1200));
 
         jPanel1.setBackground(new java.awt.Color(53, 59, 72));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 800));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1400, 1200));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1200));
-        jPanel1.setLayout(null);
 
         tableNameLBL.setBackground(new java.awt.Color(204, 204, 204));
         tableNameLBL.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         tableNameLBL.setForeground(new java.awt.Color(255, 255, 255));
         tableNameLBL.setText("Table Name");
-        jPanel1.add(tableNameLBL);
-        tableNameLBL.setBounds(300, 70, 240, 80);
 
         tabPane.setBackground(new java.awt.Color(53, 59, 72));
         tabPane.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -238,9 +241,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         tableTab1.setMaximumSize(new java.awt.Dimension(1400, 800));
         tableTab1.setMinimumSize(new java.awt.Dimension(1024, 1024));
         tableTab1.setPreferredSize(new java.awt.Dimension(873, 417));
-        tableTab1.setLayout(null);
-        tableTab1.add(columnSelectedLBL);
-        columnSelectedLBL.setBounds(140, 219, 114, 47);
 
         selectedScroll.setBackground(new java.awt.Color(53, 59, 72));
 
@@ -254,9 +254,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         });
         selectedScroll.setViewportView(selectedList);
 
-        tableTab1.add(selectedScroll);
-        selectedScroll.setBounds(790, 60, 320, 490);
-
         allColumnRd1.setBackground(new java.awt.Color(53, 59, 72));
         allColumnRd1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         allColumnRd1.setForeground(new java.awt.Color(255, 255, 255));
@@ -266,8 +263,6 @@ public class TableFrame1 extends javax.swing.JFrame {
                 allColumnRd1ActionPerformed(evt);
             }
         });
-        tableTab1.add(allColumnRd1);
-        allColumnRd1.setBounds(20, 200, 190, 50);
 
         nextTable.setBackground(new java.awt.Color(87, 101, 116));
         nextTable.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -282,8 +277,6 @@ public class TableFrame1 extends javax.swing.JFrame {
                 nextTableActionPerformed(evt);
             }
         });
-        tableTab1.add(nextTable);
-        nextTable.setBounds(1120, 360, 220, 30);
 
         prevTable.setBackground(new java.awt.Color(87, 101, 116));
         prevTable.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -300,8 +293,6 @@ public class TableFrame1 extends javax.swing.JFrame {
                 prevTableActionPerformed(evt);
             }
         });
-        tableTab1.add(prevTable);
-        prevTable.setBounds(10, 370, 230, 30);
 
         unselectedScroll.setBackground(new java.awt.Color(53, 59, 72));
 
@@ -315,9 +306,6 @@ public class TableFrame1 extends javax.swing.JFrame {
         });
         unselectedScroll.setViewportView(unselectedList);
 
-        tableTab1.add(unselectedScroll);
-        unselectedScroll.setBounds(250, 60, 320, 490);
-
         removeBtn.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         removeBtn.setForeground(new java.awt.Color(255, 255, 255));
         removeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/back/back (4).png"))); // NOI18N
@@ -327,10 +315,6 @@ public class TableFrame1 extends javax.swing.JFrame {
                 removeBtnMouseClicked(evt);
             }
         });
-        tableTab1.add(removeBtn);
-        removeBtn.setBounds(590, 310, 200, 60);
-        tableTab1.add(columnSelectedLBL4);
-        columnSelectedLBL4.setBounds(1180, 130, 110, 30);
 
         addBtn.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         addBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -341,20 +325,67 @@ public class TableFrame1 extends javax.swing.JFrame {
                 addBtnMouseClicked(evt);
             }
         });
-        tableTab1.add(addBtn);
-        addBtn.setBounds(590, 250, 120, 60);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SELECTED COLUMNS");
-        tableTab1.add(jLabel5);
-        jLabel5.setBounds(760, 10, 390, 40);
 
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("UNSELECTED COLUMNS");
-        tableTab1.add(jLabel6);
-        jLabel6.setBounds(220, 10, 440, 40);
+
+        javax.swing.GroupLayout tableTab1Layout = new javax.swing.GroupLayout(tableTab1);
+        tableTab1.setLayout(tableTab1Layout);
+        tableTab1Layout.setHorizontalGroup(
+            tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableTab1Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(tableTab1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prevTable, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(unselectedScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(allColumnRd1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(selectedScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(nextTable, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        tableTab1Layout.setVerticalGroup(
+            tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableTab1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(tableTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(prevTable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unselectedScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(allColumnRd1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(removeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectedScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tableTab1Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(nextTable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         tabPane.addTab("Table", new javax.swing.ImageIcon(getClass().getResource("/frame/newsoftframe/images/add/db (1).png")), tableTab1); // NOI18N
 
@@ -484,19 +515,17 @@ public class TableFrame1 extends javax.swing.JFrame {
 
         tabPane.addTab("Buttons", tableTab2);
 
-        jPanel1.add(tabPane);
-        tabPane.setBounds(40, 140, 1370, 640);
-
         appLBL.setBackground(new java.awt.Color(53, 59, 72));
         appLBL.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         appLBL.setForeground(new java.awt.Color(255, 255, 255));
         appLBL.setText("Application Name");
-        jPanel1.add(appLBL);
-        appLBL.setBounds(720, 70, 316, 63);
 
         appNameTxt.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jPanel1.add(appNameTxt);
-        appNameTxt.setBounds(1040, 70, 298, 60);
+        appNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appNameTxtActionPerformed(evt);
+            }
+        });
 
         backBtn.setBackground(new java.awt.Color(87, 101, 116));
         backBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -511,8 +540,6 @@ public class TableFrame1 extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn);
-        backBtn.setBounds(810, 780, 140, 44);
 
         appBuilderBtn.setBackground(new java.awt.Color(87, 101, 116));
         appBuilderBtn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -527,11 +554,55 @@ public class TableFrame1 extends javax.swing.JFrame {
                 appBuilderBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(appBuilderBtn);
-        appBuilderBtn.setBounds(990, 780, 140, 44);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1920, 1200);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(appLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(appNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(410, 410, 410)
+                        .addComponent(tableNameLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(530, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(appBuilderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(appLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(appNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
+                .addComponent(tableNameLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBtn)
+                    .addComponent(appBuilderBtn))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
+
+        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -838,6 +909,10 @@ public class TableFrame1 extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_searchChk1ActionPerformed
+
+    private void appNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_appNameTxtActionPerformed
 
     public boolean isSelected(Table1 t) {
         for (Table1 tab : selectedTables) {
@@ -1239,14 +1314,13 @@ public class TableFrame1 extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JCheckBox backChk1;
     private javax.swing.JCheckBox cancelChk1;
-    private javax.swing.JLabel columnSelectedLBL;
-    private javax.swing.JLabel columnSelectedLBL4;
     private javax.swing.JCheckBox deleteChk1;
     private javax.swing.JCheckBox insertChk1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JCheckBox nextChk1;
     private javax.swing.JButton nextTable;
     private javax.swing.JButton prevTable;
