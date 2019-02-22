@@ -962,7 +962,9 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
 
         functionContent.append(String.format("\n try{ \n"));
 
-        functionContent.append(String.format("Connection connection=" + connectionClassName + ".getConnection(\"" + db.getDbName() + "\","
+        functionContent.append(String.format(""
+                + "Class.forName(com.mysql.jdbc.Driver;\n);"
+                + "Connection connection=" + connectionClassName + ".getConnection(\"" + db.getDbName() + "\","
                 + "\"" + db.getUserName() + "\","
                 + "\"" + db.getPassword() + "\""
                 + ");\n"));
@@ -970,7 +972,11 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
         String commaColumns = String.format("PreparedStatement pre=connection.prepareStatement(QUERYHERE);\nSETFUNCTION\n");
         
         functionContent.append(commaColumns);
-        functionContent.append(String.format("}catch(SQLException exception){\n"
+        functionContent.append(String.format("}catch(ClassNotFoundException ex){"
+                + "ex.printStackTrace();\n"
+                + "}"
+                + ""
+                + "catch(SQLException exception){\n"
                 + "JOptionPane.showMessageDialog(null,exception.getMessage());\n}"));
 
         if (declare != null && !declare.trim().equals("")) {
