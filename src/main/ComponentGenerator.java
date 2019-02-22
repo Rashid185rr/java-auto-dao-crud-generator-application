@@ -367,6 +367,7 @@ break;
                 impVar + "DaoImpl=new " + tableName + "DaoImpl();\n"
         );
 
+        
         //constr.append((table.getPrimaryColumn() != null ? table.getPrimaryColumn().getColName() : table.getExceptPriCol().getColName()) + " =" + tableVar + "DaoImpl.getAutoIncrement();\n");
         //declaration.append("String " + (table.getPrimaryColumn() != null ? table.getPrimaryColumn().getColName() : table.getExceptPriCol().getColName()) + ";\n");
         if (table.isAnyAutoIncrement()) {
