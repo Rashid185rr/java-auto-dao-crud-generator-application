@@ -357,6 +357,7 @@ public class Query {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            
         }
 
         return i;

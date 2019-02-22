@@ -968,10 +968,10 @@ setFunction.append(ComponentMdf.getSet(column,ind++,tableVar+".get"+Functions.ge
                 + ");\n"));
 
         String commaColumns = String.format("PreparedStatement pre=connection.prepareStatement(QUERYHERE);\nSETFUNCTION\n");
-
+        
         functionContent.append(commaColumns);
         functionContent.append(String.format("}catch(SQLException exception){\n"
-                + "JOptionPane.showMessageDialog(null,exception.toString());\n}"));
+                + "JOptionPane.showMessageDialog(null,exception.getMessage());\n}"));
 
         if (declare != null && !declare.trim().equals("")) {
             functionContent.append("return var;\n}");
